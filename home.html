@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title> TO DO APP MAIN PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>.button{
+      background-color: red;
+      }
+      p{text-indent: 2em;
+        letter-spacing: 2px;
+        word-spacing: 3px;
+      background-color: yellowgreen;
+      }
+    </style>
+  </head>
+  
+  <body style="background-color: goldenrod;" >
+    <h1 style="color: darkmagenta;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      TO-DO WEB APP</h1>
+
+
+
+    <form action="/new">
+      
+
+      <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="button">USER PAGE</button>
+     </form>
+     
+    <form action="/" method='POST'>
+      <h3 style="color: purple;">ADD THE NEW TASKS</h3>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    TASK-TITLE<input type="text" value='add taskname here' name="title">
+       
+       <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     TASK DUE DATE
+     
+     <input type="date" value='dd-mm-yy' name="author">
+          
+       <br>
+     <input type="submit" value="Add Task and Due date">
+
+    </form>
+
+
+    <h1 style="color: orangered;">New user registration</h1>
+    <form action="/form" method='POST'>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        USERNAME<input type="text" value='USERS-NAME' name="username">
+         
+         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       Email--
+       <input type="email" value='' name="email">
+       <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      pasword
+      <input type="password " value='' name="password">       
+        
+         <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="submit" value="I want submit this detais">
+  
+      </form>
+
+
+
+      <!--h1>USER login</h1>
+      <form action="/form" method='POST'>
+        <br>
+         Email--
+         <input type="email" value='' name="emailcheck">
+         pasword
+        <input type="password" value='password' name="passwordcheck">       
+        <br>
+         <input type="submit" value="enter">
+    
+        </form-->
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <h1 style="color: blueviolet;">I want to save the status of my task and want to see others status also:</h1>
+        <form action="/ALLUSERSTASKSTATUS">
+          <button class="button">ALL USERS TASK STATUS</button>
+     </form>
+      <form action="/buses" method='POST'>
+      enter any unique idno. for your status <input type="text" value='combination of no. and word' name="id"></input>
+ <br> username and email
+   <input type="text" value='userid' name="userid"></input>
+   <br>  your task name and its status
+  <input type="text" value='carno.' name="carno."></input>
+        
+         <br>
+       <input type="submit" value="enter"></input>
+  
+      </form>
+
+
+      <h1>OUR VALUABLE USERS</h1>
+      {% for book in booksnew %}
+        <p>{{book.username}}</p>
+      <hr>
+      {% endfor %} 
+
+
+
+    <h1 style="color: hotpink;"> All Tasks On This Platform </h1>
+    {% for book in books %}
+      <p>{{book.title}}</p>
+    hope you will complete before<p> {{book.author}}</p>
+   
+    <form method="POST" action="./delete">
+      <input type="hidden" value="{{book.title}}" name="title">  
+      <input type="submit" value="Delete">
+    </form>  
+    <hr> 
+    {% endfor %}
+
+
+
+<p style='color:Tomato;'>Designed by:Deepak Kr. Jha & Akshay Kr. Khushwaha </p>
+  </body>
+</html>

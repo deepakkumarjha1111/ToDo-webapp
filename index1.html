@@ -1,0 +1,65 @@
+<!DOCTYPE>
+<html lang='en'>
+<head>
+     <title>TO DO LIST</title> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+<h1 style='color: deeppink;'>To do list--[UPDATE THE INCOMPLETE TASKS HERE]</h1>
+    <div><h3> tasks which are incomplete few moments earlier</h3>
+
+        <form action="{{ url_for('add') }}" method='POST'>
+        <input type='text' name='todoitem'>
+        <input type='submit' value='Add Items'>
+        </form>
+    </div>
+<div>
+<hr>
+    <h2 style="color: forestgreen;">Icomplete TASKS</h2>
+
+<ul>
+    {% for todo in incomplete %}
+    
+    <li style='font-size: 30pt'>{{ todo.text }}<a href="{{ url_for('complete', id=todo.id) }}">mark as complete</a></li>
+    
+    {% endfor %}
+    
+</ul>
+<hr>    
+<h2>Completed Items</h2>
+
+<ul>
+    {% for todo in complete %}
+    
+    <li style='font-size: 30pt'>{{ todo.text }}</li>
+    {% endfor %}
+  
+</ul>
+
+<!--'''
+from config import Config 
+from flask_sqlalchemy import SQLAlchemy
+
+
+app = Flask(__name__)
+app.config.from_object(Config)
+    #database_file
+
+db = SQLAlchemy(app)
+'''-->
+<hr style="color: fuchsia;">
+<h1>ALL incomplete tasks</h1>
+<ul>
+    {% for book in books %}
+      <p>{{book.title}}</p>
+    hope you will complete before<p>{{book.author}}</p>
+    <hr>
+    {% endfor %}
+</ul>
+
+</div>   
+<p style='color:Tomato;'>Designed by:Deepak Kr. Jha & Akshay Kr. Khushwaha </p>
+
+</body>
+</html>           

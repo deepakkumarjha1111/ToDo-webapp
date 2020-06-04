@@ -1,0 +1,25 @@
+<!DOCTYPE>
+<html lang='en'>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>USERS THAT HAVE COMPLETED ADMIN'S TASKS ARE HERE </title> 
+</head>
+<body style="color: greenyellow;">
+<h1>SO THE USERID OF THEIR ARE LIKE THIS</h1>
+    
+<h1>ALL USERID TASKS AND THEIR TASKS STATUS</h1>
+<ul>[<br></br.>
+    {% for book in books %}
+   {"userid":"{{book.title}}",<br></br.>
+   "task_and_its_stauts":"{{book.author}}"
+   <br></br.> 
+    },<br></br.>
+    {% endfor %}]
+</ul>
+
+</div>   
+<p style='color:Tomato;'>Designed by:Deepak Kr. Jha & Akshay Kr. Khushwaha </p>
+
+</body>
+</html>         
